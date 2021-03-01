@@ -1,0 +1,32 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  font-family: 'Playfair Display', serif;
+  font-size: 100%;
+  vertical-align: baseline;
+  background-color: #f1f6f9;
+  color: #14274e;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+app-first-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+

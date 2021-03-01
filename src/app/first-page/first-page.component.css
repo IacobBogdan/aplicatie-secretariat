@@ -1,0 +1,55 @@
+.container-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 3.5rem 5rem 1rem 3.5rem;
+  justify-content: flex-start;
+}
+
+.select-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+
+.select-buttons li {
+  font-size: 1.3rem;
+}
+
+mat-form-field {
+  width: 15rem;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.orientation-buttons {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+}
+
+.orientation-buttons mat-icon {
+  margin-left: 1rem;
+  font-size: 2rem;
+  color: #14274e;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+mat-form-field {
+  margin-right: 3rem;
+}
+
+#formDomPS mat-form-field {
+  width: 40%;
+}

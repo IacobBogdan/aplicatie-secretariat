@@ -1,0 +1,57 @@
+<mat-card class="my-2 card-container">
+  <mat-card-header>
+    <mat-card-title [id]="student.idPersoana" class="m-0"><i class="material-icons mr-2">&#xE87C;</i> {{student.numeActual +" "+student.prenume}} </mat-card-title>
+    <mat-card-subtitle class="my-1">
+    <mat-card-actions class="m-0 p-0 ml-auto">
+      <button mat-mini-fab color="primary" (click)="toggleShowDetails(student)">
+        <mat-icon>{{!student.detalii ? 'unfold_more' : 'unfold_less'}}</mat-icon>
+      </button>Detalii
+      <button mat-mini-fab color="primary" (click)="exportAsXLSX()">
+        <mat-icon>filter_none</mat-icon>
+      </button>Export
+      <button mat-mini-fab color="primary" (click)="exportAsXLSX()">
+        <mat-icon>mode_edit</mat-icon>
+      </button>Editeaza
+    </mat-card-actions>
+  </mat-card-subtitle>
+  </mat-card-header>
+
+    <mat-card-content [hidden]="!student.detalii" [id]="student.idPersoana">
+      <p>{{"Nume Nastere:" + student.numeNastere}}</p>
+      <p>{{"Nume Actual:" + student.numeActual}}</p>
+      <p>{{"Prenume:" + student.prenume}}</p>
+      <p>{{"Ciclu:" + student.ciclu}}</p>
+      <p>{{"Email:" + student.emailTUIASI}}</p>
+      <p>{{"Domeniu:" + student.domeniu}}</p>
+      <p>{{"Program:" + student.program}}</p>
+      <p>{{"An:" + student.an}}</p>
+      <p>{{"Serie:" + student.serie}}</p>
+      <p>{{"Grupa:" + student.grupa}}</p>
+    </mat-card-content>
+</mat-card>
+
+<!-- idPersoana: number;
+numeNastere: string;
+numeActual: string;
+prenume: string;
+emailTUIASI: string;
+initialaParinte: string;
+idStudiu: number;
+facultate: string;
+ciclu?: string;
+domeniu?: string;
+program?: string;
+an?: string;
+serie?: string;
+grupa?: string;
+detalii?: boolean; -->
+
+<!--&lt;!&ndash;  asta e a doua varianta &ndash;&gt;-->
+
+<!--  <div *ngIf="student.detalii; then thenBlock"></div>-->
+<!--  <ng-template #thenBlock>Content to render when condition is true.-->
+<!--    &lt;!&ndash;  <ng-template #elseBlock>Content to render when condition is false.</ng-template>&ndash;&gt;-->
+<!--    <mat-card-content [id]="student.idStudent">-->
+<!--      {{student.idStudent}}-->
+<!--    </mat-card-content>-->
+<!--  </ng-template>-->

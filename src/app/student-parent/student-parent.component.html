@@ -1,0 +1,45 @@
+<div class="orientation-buttons mb-4">
+  <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="views">
+  <label ngbButtonLabel class="btn-primary" >
+    <input ngbButton type="radio" [value]="'grid'" class="material-icons"> Grid
+  </label>
+  <label ngbButtonLabel class="btn-primary">
+    <input ngbButton type="radio" [value]="'list'"> List
+  </label>
+  </div>
+<button mat-raised-button color="accent" class="ml-2"  (click)="exportAsXLSX()">Exportați lista completă</button>
+</div>
+
+
+<div *ngIf="views === 'grid'; then gridView else listView"></div>
+<ng-template #gridView>
+  <div class="search-input">
+    <input type="text" class="form-control" placeholder="Caută după nume" [(ngModel)]="nume"/>
+  <div class="input-group-append">
+    <button mat-raised-button color="warn" class="btn btn-outline-secondary" type="button" (click)="retrieveStudent()">Search</button>
+  </div>
+    <!-- <input class="form-control" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="Search()" placeholder="Caută după Nume"> -->
+    <!-- <input type="text" name="search" class="search__input" placeholder="Caută după nume" [(ngModel)]="tableService.filter">  -->
+  </div>
+  <pagination-controls class="paginare" nextLabel="Înainte" previousLabel="Înapoi"   responsive="true" (pageChange)="p = $event"></pagination-controls>
+  <div class="students-container-grid">
+    <app-grid-view-student *ngFor="let student of Students | paginate: { itemsPerPage: 30, currentPage: p }" [student]="student"></app-grid-view-student>
+  </div>
+</ng-template>
+
+<ng-template #listView>
+  <div class="search-input">
+    <input type="text" class="form-control" placeholder="Caută după nume" [(ngModel)]="nume"/>
+  <div class="input-group-append">
+    <button mat-raised-button color="warn" class="btn btn-outline-secondary" type="button" (click)="retrieveStudent()">Search</button>
+  </div>
+    <!-- <input class="form-control" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="Search()" placeholder="Caută după Nume"> -->
+    <!-- <input type="text" name="search" class="search__input" placeholder="Caută după nume" [(ngModel)]="tableService.filter">  -->
+  </div>
+  <pagination-controls class="paginare" nextLabel="Înainte" previousLabel="Înapoi"   responsive="true" (pageChange)="p = $event"></pagination-controls>
+  <div class="students-container-list">
+    <app-list-view-student  *ngFor="let student of Students | paginate: { itemsPerPage: 30, currentPage: p }" [student]="student"></app-list-view-student>
+  </div>
+</ng-template>
+
+

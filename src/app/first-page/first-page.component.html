@@ -1,0 +1,94 @@
+<div class="container-wrapper">
+
+  <h3 class="mb-5 text-center">Selectați toate elementele de la stânga la dreapta</h3>
+
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="selectCicluStudiiFormGroup">
+      <form [formGroup]="selectCicluStudiiFormGroup">
+        <ng-template matStepLabel>{{(this.searchArray.data[0]) ? this.searchArray.data[0].value : 'Selectați ciclul de studiu'}}</ng-template>
+        <mat-form-field>
+          <mat-label>Ciclul de studiu</mat-label>
+          <mat-select (ngModelChange)="changeSelectData('CICLU')" required formControlName="CICLU">
+            <mat-option *ngFor="let cicluStudiu of CICLU" [value]="cicluStudiu.value">
+              {{cicluStudiu.text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Următorul pas</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="selectDomPSFormGroup">
+      <form [formGroup]="selectDomPSFormGroup" id="formDomPS">
+        <ng-template matStepLabel>{{(this.searchArray.data[1]) ? this.searchArray.data[1].value : 'Selectați Domeniul și Programul de Studiu'}}</ng-template>
+        <mat-form-field>
+          <mat-label>Domeniu</mat-label>
+          <mat-select (ngModelChange)="changeSelectData('DOMENIU')" required formControlName="DOMENIU">
+            <mat-option *ngFor="let domeniu of DOMENIU" [value]="domeniu.value">
+              {{domeniu.text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Program de Studiu</mat-label>
+          <mat-select (ngModelChange)="changeSelectData('PROGRAM')" formControlName="PROGRAM">
+            <mat-option *ngFor="let programStudiu of PROGRAM" [value]="programStudiu.value">
+              {{programStudiu.text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Înapoi</button>
+          <button mat-button matStepperNext>Înainte</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="selectAnSerieGrupaFromGroup" label="Selectați detaliile privind anul, seria și grupa">
+      <form [formGroup]="selectAnSerieGrupaFromGroup">
+        <mat-form-field>
+          <mat-label>Anul</mat-label>
+          <mat-select (ngModelChange)="changeSelectData('AN')" required formControlName="AN">
+            <mat-option *ngFor="let an of AN" [value]="an.value">
+              {{an.text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Seria</mat-label>
+          <mat-select (ngModelChange)="changeSelectData('SERIE')" formControlName="SERIE">
+            <mat-option *ngFor="let serie of SERIE" [value]="serie.value">
+              {{serie.text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Grupa</mat-label>
+          <mat-select (ngModelChange)="changeSelectData('GRUPA')" formControlName="GRUPA">
+            <mat-option *ngFor="let grupa of GRUPA" [value]="grupa.value">
+              {{grupa.text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Înapoi</button>
+          <button mat-button matStepperNext>Înainte</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+  <mat-divider class="mb-4"></mat-divider>
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="row mt-2 col-12 p-0 m-0">
+        <div id="student-parent" class="col-12 p-0 m-0">
+          <app-student-parent [searchArray]="this.searchArray.data"></app-student-parent>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <app-paginator></app-paginator> -->
+</div>

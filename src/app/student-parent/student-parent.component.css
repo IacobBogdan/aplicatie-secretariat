@@ -1,0 +1,46 @@
+.orientation-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.students-container-list {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1;
+}
+
+.students-container-grid {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  justify-content: space-between;
+}
+
+app-student-parent {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+app-grid-view-student {
+  display: flex;
+  flex-basis: 22.5%;
+}
+.input-group-append{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.search-input{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.paginare{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
